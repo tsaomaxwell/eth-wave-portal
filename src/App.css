@@ -1,8 +1,42 @@
+
 .mainContainer {
   display: flex;
   justify-content: center;
   width: 100%;
-  margin-top: 64px;
+  margin-top: 150px;
+  font-family: 'Bubbler One';
+
+}
+
+.ripple {
+  position: absolute;
+  top: 0px; /* Header Height */
+  bottom: 0px; /* Footer Height */
+  background-color: #00b3ff;
+  width: 100%;
+  animation: myripple 10s infinite;
+}
+
+@keyframes myripple{
+  0%{
+    background-color: #00b3ff;
+  }
+  
+  25%{
+    background-color: #ff69eb;
+  }
+  
+  50%{
+    background-color: #ff9f40;
+  }
+
+  75%{
+    background-color: #ff69eb;
+  }
+
+  100%{
+    background-color: #00b3ff;
+  }
 }
 
 .dataContainer {
@@ -14,21 +48,53 @@
 
 .header {
   text-align: center;
-  font-size: 32px;
+  color: white;
+  font-size: 128px;
   font-weight: 600;
 }
 
 .bio {
   text-align: center;
-  color: gray;
+  color: white;
   margin-top: 16px;
+  font-size: 32px;
+  font-family: 'Bubbler One';
 }
 
 .waveButton {
   cursor: pointer;
+  justify-self: center;
   margin-top: 16px;
+  font-size: 32px;
+  font-family: 'Bubbler One';
   padding: 8px;
   border: 0;
   border-radius: 5px;
+  color: #00b3ff;
+  animation: buttoncolor 10s infinite;
+}
+
+@keyframes buttoncolor{
+  0%{
+    width: 50%;
+    color: #00b3ff;
+  }
   
+  25%{
+    color: #ff69eb;
+  }
+  
+  50%{
+    width: 100%;
+    color: #ff9f40;
+  }
+
+  75%{
+    color: #ff69eb;
+  }
+
+  100%{
+    width: 50%;
+    color: #00b3ff;
+  }
 }
