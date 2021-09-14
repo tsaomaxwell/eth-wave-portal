@@ -7,7 +7,7 @@ import { TextField } from "@material-ui/core"
 export default function App() {
   const [currAccount, setCurrAccount]= React.useState("");
   const [msg, setMsg] = React.useState("");
-  const contractAddress = "0x10bFCe4b08Ed902C0d29e415408C5600C8b24ccA"
+  const contractAddress = "0x78e8735b2137Fbb38D88eb512624B5bcD4E5e5C5"
   const contractABI = abi.abi
 
   const checkIfWalletIsConnected = () => {
@@ -61,7 +61,7 @@ export default function App() {
     let count = await wavePortalContract.getTotalWaves();
     console.log("Retrieved total wave count...", count.toNumber());
 
-    const waveTxn = await wavePortalContract.wave(msg);
+    const waveTxn = await wavePortalContract.wave(msg, { gasLimit: 300000 });
   }
 
   const [allWaves, setAllWaves] = React.useState([]);
@@ -80,8 +80,15 @@ export default function App() {
         message: wave.message
       });
     });
-
     setAllWaves(wavesCleaned);
+
+    wavePortalContract.on("NewWave", (from, timestamp, message) => {
+      setAllWaves(oldArray => [...oldArray, {
+        address: from,
+        timestamp: new Date(timestamp * 1000),
+        message: message
+      }])
+    })
   }
   
   return (
