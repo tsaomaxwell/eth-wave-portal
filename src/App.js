@@ -77,7 +77,7 @@ export default function App() {
           </button>
 
           {currAccount ? null : (
-            <button className="waveButton" onClick={connectWallet}>
+            <button className="connectButton" onClick={connectWallet}>
               Connect Wallet
             </button>
           )}

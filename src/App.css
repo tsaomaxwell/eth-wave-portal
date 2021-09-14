@@ -74,6 +74,21 @@
   animation: buttoncolor 10s infinite;
 }
 
+.connectButton {
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  justify-self: center;
+  margin-top: 16px;
+  font-size: 32px;
+  font-family: 'Bubbler One';
+  padding: 8px;
+  border: 0;
+  border-radius: 5px;
+  color: #00b3ff;
+  animation: buttoncolor 10s infinite;
+}
+
 @keyframes buttoncolor{
   0%{
     width: 50%;
