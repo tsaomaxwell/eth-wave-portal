@@ -7,7 +7,7 @@ import { TextField } from "@material-ui/core"
 export default function App() {
   const [currAccount, setCurrAccount]= React.useState("");
   const [msg, setMsg] = React.useState("");
-  const contractAddress = "0xd051853455E30015eb4b9Db98E6af4f24eA30C77"
+  const contractAddress = "0x10bFCe4b08Ed902C0d29e415408C5600C8b24ccA"
   const contractABI = abi.abi
 
   const checkIfWalletIsConnected = () => {
