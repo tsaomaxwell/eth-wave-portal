@@ -8,6 +8,16 @@
 
 }
 
+.msgContainer {
+  background-color: white;
+  margin-top: 16px;
+  padding: 12px; 
+  border-radius: 25px;
+  font-size: 20px;
+  font-family: 'Bubbler One';
+}
+
+
 .ripple {
   position: absolute;
   top: 0px; /* Header Height */
@@ -74,6 +84,14 @@
   animation: buttoncolor 10s infinite;
 }
 
+.textwrapper {
+  background-color: white;
+  animation: textcolor 10s infinite;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
 .connectButton {
   cursor: pointer;
   justify-self: center;
@@ -108,6 +126,28 @@
 
   100%{
     width: 50%;
+    color: #00b3ff;
+  }
+}
+
+@keyframes textcolor{
+  0%{
+    color: #00b3ff;
+  }
+  
+  25%{
+    color: #ff69eb;
+  }
+  
+  50%{
+    color: #ff9f40;
+  }
+
+  75%{
+    color: #ff69eb;
+  }
+
+  100%{
     color: #00b3ff;
   }
 }

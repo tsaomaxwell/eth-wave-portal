@@ -2,9 +2,11 @@ import * as React from "react";
 import { ethers } from "ethers";
 import './App.css';
 import abi from "./utils/WavePortal.json";
+import { TextField } from "@material-ui/core"
 
 export default function App() {
   const [currAccount, setCurrAccount]= React.useState("");
+  const [msg, setMsg] = React.useState("");
   const contractAddress = "0xd051853455E30015eb4b9Db98E6af4f24eA30C77"
   const contractABI = abi.abi
 
@@ -59,7 +61,7 @@ export default function App() {
     let count = await wavePortalContract.getTotalWaves();
     console.log("Retrieved total wave count...", count.toNumber());
 
-    const waveTxn = await wavePortalContract.wave("dummy msg");
+    const waveTxn = await wavePortalContract.wave(msg);
   }
 
   const [allWaves, setAllWaves] = React.useState([]);
@@ -95,6 +97,18 @@ export default function App() {
           I'm Maxwell, what's up? Connect your Ethereum wallet and wave at me!
           </div>
 
+          <div className = "textwrapper">
+            <TextField
+              id="messagebox"
+              label="Enter your message to me!:"
+              value={msg}
+              variant="filled"
+              color="secondary"
+              onChange={(event) => setMsg(event.target.value)}
+              fullWidth
+            />
+          </div>
+
           <button className="waveButton" onClick={wave}>
             Wave at Me
           </button>
@@ -107,10 +121,10 @@ export default function App() {
 
           {allWaves.map((wave, index) => {
             return (
-              <div style ={{backgroundColor: "OldLace", marginTop: "16px", padding: "8px"}}>
-                <div>Address: {wave.address}</div>
-                <div>Time: {wave.timestamp.toString()}</div>
-                <div>Message:{wave.message}</div>
+              <div className = "msgContainer">
+                <div><b>My Guy:</b> {wave.address}</div>
+                <div><b>Said:</b> {wave.message}</div>
+                <div><b>At:</b> {wave.timestamp.toString()}</div>
               </div>
             )
           })}
