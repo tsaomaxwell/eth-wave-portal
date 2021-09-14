@@ -76,8 +76,6 @@
 
 .connectButton {
   cursor: pointer;
-  position: absolute;
-  right: 0;
   justify-self: center;
   margin-top: 16px;
   font-size: 32px;
